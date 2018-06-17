@@ -45,7 +45,7 @@ class Main extends Component {
             <View style={styles.container}>
                 <NavigationBar title={
                     'Main'
-                } showLeft={false} style={{backgroundColor: color}}/>
+                } showLeft={false}/>
                 <TouchableHighlight style={styles.itemView} underlayColor="red" onPress={() => {
                     dispatch(add(result))
                 }}>
@@ -68,15 +68,20 @@ class Main extends Component {
                 </Text>
 
                 <Text style={{paddingTop: 10}} onPress={() => {
-                    dispatch(changeColor(color));
+                    dispatch(changeColor('red'));
                 }}>
-                    改变颜色
+                    变红
+                </Text>
+                <Text style={{paddingTop: 10}} onPress={() => {
+                    dispatch(changeColor('blue'));
+                }}>
+                    变蓝
                 </Text>
 
                 <Text style={{paddingTop: 10}} onPress={() => {
                     navigate('Second')
                 }}>
-                    跳转
+                    跳转到新页面
                 </Text>
 
             </View>
