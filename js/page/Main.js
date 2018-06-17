@@ -37,10 +37,8 @@ class Main extends Component {
         arr.reduce((a, v) => a.concat(Array.isArray(v) ? this.deepFlatten(v) : v), []);
 
     render() {
-        const {dispatch, result, color} = this.props;
+        const {dispatch, result} = this.props;
         const {navigate} = this.props.navigation;
-
-        console.log(color);
         return (
             <View style={styles.container}>
                 <NavigationBar title={
