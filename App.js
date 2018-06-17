@@ -9,7 +9,7 @@ import React, {Component} from 'react';
 
 import {Provider} from 'react-redux';
 import Store from './js/store/Store';
-import Main from './js/page/Main';
+import Main from './js/Router';
 
 const store = Store();
 

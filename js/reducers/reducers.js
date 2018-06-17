@@ -5,7 +5,9 @@
 import mathReducer from './MathReducer';
 
 import {combineReducers} from 'redux';
+import changeColorReducer from './ChangeColorReducer';
 
 export default combineReducers({
-    mathReducer
+    mathReducer,
+    changeColorReducer
 })

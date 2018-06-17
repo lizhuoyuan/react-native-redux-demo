@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux'
 import {add, minus} from '../actions/MathAction'
+import {changeColor} from '../actions/ChangeColorAction';
+import NavigationBar from '../common/NavigationBar';
 
 const {width} = Dimensions.get('window');
 
@@ -16,10 +18,34 @@ class Main extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        let arr = [1, [2, [3, 4, [5, 6, ['a', 'b', 'c']]]]];
+        console.log(this.toOne(arr))
+    }
+
+    /**
+     * 多维数组转一维 reduce
+     */
+    toOne(array) {
+        return array.reduce(
+            (begin, current) =>
+                begin.concat(Array.isArray(current) ? this.toOne(current) : current), []
+        )
+    }
+
+    deepFlatten = arr =>
+        arr.reduce((a, v) => a.concat(Array.isArray(v) ? this.deepFlatten(v) : v), []);
+
     render() {
-        const {dispatch, result} = this.props;
+        const {dispatch, result, color} = this.props;
+        const {navigate} = this.props.navigation;
+
+        console.log(color);
         return (
             <View style={styles.container}>
+                <NavigationBar title={
+                    'Main'
+                } showLeft={false} style={{backgroundColor: color}}/>
                 <TouchableHighlight style={styles.itemView} underlayColor="red" onPress={() => {
                     dispatch(add(result))
                 }}>
@@ -40,9 +66,23 @@ class Main extends Component {
                 <Text style={{paddingTop: 10, color: 'red'}}>
                     当前的Num值是:{result}
                 </Text>
+
+                <Text style={{paddingTop: 10}} onPress={() => {
+                    dispatch(changeColor(color));
+                }}>
+                    改变颜色
+                </Text>
+
+                <Text style={{paddingTop: 10}} onPress={() => {
+                    navigate('Second')
+                }}>
+                    跳转
+                </Text>
+
             </View>
         )
     }
+
 }
 
 const styles = StyleSheet.create({
@@ -70,6 +110,7 @@ const styles = StyleSheet.create({
 function selector(store) {
     return {
         result: store.mathReducer.result,
+        color: store.changeColorReducer.color
     }
 }
 

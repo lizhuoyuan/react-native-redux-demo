@@ -5,3 +5,9 @@
 
 export const ADD_TYPE = 'ADD_TYPE';
 export const MINUS_TYPE = 'MINUS_TYPE';
+
+//改变主题颜色
+
+export const changeColor = 'changeColor';
+export const ChangeColorRed = 'red';
+export const ChangeColorBlue = 'blue';
