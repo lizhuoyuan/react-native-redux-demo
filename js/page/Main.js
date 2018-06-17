@@ -43,7 +43,8 @@ class Main extends Component {
             <View style={styles.container}>
                 <NavigationBar title={
                     'Main'
-                } showLeft={false}/>
+                } showLeft={false}
+                />
                 <TouchableHighlight style={styles.itemView} underlayColor="red" onPress={() => {
                     dispatch(add(result))
                 }}>

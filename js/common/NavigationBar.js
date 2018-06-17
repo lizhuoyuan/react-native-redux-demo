@@ -87,7 +87,8 @@ class NavigationBar extends React.Component {
     }
 
     _renderLeft() {
-        let {leftButton, leftTextStyle, showLeft, navigation, onLeftClick} = this.props;
+
+        let {leftButton, leftTextStyle, showLeft, onLeftClick} = this.props;
         if (!showLeft) {
             return null;
         }
@@ -96,8 +97,6 @@ class NavigationBar extends React.Component {
                 <TouchableOpacity onPress={() => {
                     if (onLeftClick) {
                         onLeftClick();
-                    } else {
-                        navigation.goBack();
                     }
                 }}>
                     <View style={styles.leftContainer}>
