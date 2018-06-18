@@ -34,7 +34,6 @@ class NavigationBar extends React.Component {
         style: View.propTypes.style,
         title: PropTypes.string,
         titleView: PropTypes.element,
-        hide: PropTypes.bool,
         leftButton: PropTypes.element,
         rightButton: PropTypes.element,
         statusBar: PropTypes.shape(StatusBarShape),
