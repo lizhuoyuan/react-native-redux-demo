@@ -89,7 +89,13 @@ export default class Second extends React.Component {
         console.log(this.props.navigation)
         return (
             <View>
-                <NavigationBar title={'Second'}/>
+                <NavigationBar
+                    title={'Second'}
+                    statusBar={{
+                        barStyle: 'dark-content',
+                        backgroundColor: 'white',
+                        hidden: false,
+                    }}/>
                 <Text>second</Text>
 
             </View>

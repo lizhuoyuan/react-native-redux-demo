@@ -45,7 +45,7 @@ class NavigationBar extends React.Component {
         showLeft: PropTypes.bool,
         rightButton: PropTypes.element,
         rightTextStyle: View.propTypes.style,
-        showRight: PropTypes.bool
+        showRight: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -59,19 +59,16 @@ class NavigationBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            hide: false,
-
-        }
+        this.state = {}
     }
 
     render() {
+        alert(this.props.statusBar.hidden)
         let {color} = this.props;
         let leftButton = this._renderLeft();
         let rightButton = this._renderRight();
-        let statusBar = !this.props.statusBar.hidden ? <View>
-            <StatusBar {...this.props.statusBar}/></View> : null;
+        let statusBar = <View>
+            <StatusBar {...this.props.statusBar} hidden={this.props.statusBar.hidden}/></View>;
         let titleView = this.props.titleView ? this.props.titleView :
             <Text style={[styles.titleStyle, this.props.titleLayoutStyle]}>{this.props.title}</Text>;
         let content = <View style={styles.content}>

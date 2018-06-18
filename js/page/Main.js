@@ -44,7 +44,10 @@ class Main extends Component {
                 <NavigationBar title={
                     'Main'
                 } showLeft={false}
-                />
+                               statusBar={{
+                                   hidden: true,
+                               }}/>
+
                 <TouchableHighlight style={styles.itemView} underlayColor="red" onPress={() => {
                     dispatch(add(result))
                 }}>
@@ -93,7 +96,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f2f2f2',
-        marginTop: 20,
     },
     itemView: {
         backgroundColor: 'grey',
