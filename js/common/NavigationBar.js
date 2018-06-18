@@ -67,7 +67,7 @@ class NavigationBar extends React.Component {
         let leftButton = this._renderLeft();
         let rightButton = this._renderRight();
         let statusBar = <View>
-            <StatusBar {...this.props.statusBar} hidden={this.props.statusBar.hidden}/></View>;
+            <StatusBar {...this.props.statusBar}/></View>;
         let titleView = this.props.titleView ? this.props.titleView :
             <Text style={[styles.titleStyle, this.props.titleLayoutStyle]}>{this.props.title}</Text>;
         let content = <View style={styles.content}>
