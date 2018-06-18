@@ -86,14 +86,10 @@ export default class Second extends React.Component {
     }
 
     render() {
+        console.log(this.props.navigation)
         return (
             <View>
-                <NavigationBar title={'Second'}
-                               //navigation={this.props.navigation}
-                               onLeftClick={()=>{
-                                   this.props.navigation.goBack()
-                               }}
-                />
+                <NavigationBar title={'Second'}/>
                 <Text>second</Text>
 
             </View>

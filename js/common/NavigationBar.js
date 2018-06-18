@@ -14,6 +14,7 @@ import {
     StatusBar
 } from 'react-native';
 
+import {withNavigation} from 'react-navigation';
 import * as ScreenUtil from "../utils/ScreenUtil";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -97,6 +98,8 @@ class NavigationBar extends React.Component {
                 <TouchableOpacity onPress={() => {
                     if (onLeftClick) {
                         onLeftClick();
+                    } else {
+                        this.props.navigation.goBack()
                     }
                 }}>
                     <View style={styles.leftContainer}>
@@ -180,4 +183,4 @@ const styles = StyleSheet.create({
  * 把这个组件用connect包裹住就能拿到store。
  注意export default已经拿到下面来了，上面的class前面的导出要删掉
  */
-export default connect(changeColor)(NavigationBar);
+export default connect(changeColor)(withNavigation(NavigationBar));
