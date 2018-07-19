@@ -16,15 +16,6 @@ import NavigationBar from '../common/NavigationBar';
 
 export default class Second extends React.Component {
 
-    static propTypes = {};
-
-    static defaultProps = {};
-
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-
 
     /**
      * 初始化了状态之后，在第一次绘制 render() 之前
